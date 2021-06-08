@@ -9,6 +9,10 @@ namespace ParadiseDemo5.Models
 {
     public class Tour
     {
+       
+
+
+
         public Tours TourType { get; set; }
         public enum Tours
         {
@@ -76,10 +80,12 @@ namespace ParadiseDemo5.Models
 
         //[Display(Name = "Deposit")]
         //[Required(ErrorMessage = "Deposit Required")]
+        [Display(Name = "Capacity")]
+        public int capacity { get; set; }
         public double Deposit { get; set; }
         public double GuestCost { get; set; }
         public double Total_Cost { get; set; }
-
+        public int TTickets { get; set; }
         public double deposit()
         {
 
@@ -255,5 +261,36 @@ namespace ParadiseDemo5.Models
 
 
         }
+        public int numOfTickets()
+        {
+            int x = Num_Adults + Num_Kids;
+            return x;
+        }
+        public string Booked()
+        {
+            string x = "";
+            if (numOfTickets() > capacity)
+            {
+                x="Fully booked";
+            }
+            else
+            {
+                x = "Available";
+                Counter = Counter+ numOfTickets();
+                {
+                    for (Counter = 2; Counter >= 2; Counter++) ;
+                    
+                    
+
+                    
+                }
+            }
+            return x;
+            
+        }
+
+
+        public int Counter = 0;
+
     }
 }

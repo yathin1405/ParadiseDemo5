@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ParadiseDemo5.Models.Hotel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_Guests)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Num_Adults)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Num_Children)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Guest_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hotels)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumOfGuests)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Breakfast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Breakfast_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Meal_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomType_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MealType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_Guests)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Num_Adults)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Num_Children)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Guest_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hotels)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumOfGuests)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Breakfast)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Breakfast_Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Meal_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomType_Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MealType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.HotelID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.HotelID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.HotelID })
+        </td>
+    </tr>
+}
+
+</table>

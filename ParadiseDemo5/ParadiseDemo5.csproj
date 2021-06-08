@@ -128,9 +128,29 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelsController.cs" />
+    <Compile Include="Controllers\ToursController.cs" />
+    <Compile Include="Data\ParadiseDemo5Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106080829379_InitialCreate.cs" />
+    <Compile Include="Migrations\202106080829379_InitialCreate.designer.cs">
+      <DependentUpon>202106080829379_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106080935590_demo1.cs" />
+    <Compile Include="Migrations\202106080935590_demo1.designer.cs">
+      <DependentUpon>202106080935590_demo1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106081142562_Demo2.cs" />
+    <Compile Include="Migrations\202106081142562_Demo2.designer.cs">
+      <DependentUpon>202106081142562_Demo2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106081355390_Deom6.cs" />
+    <Compile Include="Migrations\202106081355390_Deom6.designer.cs">
+      <DependentUpon>202106081355390_Deom6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cruise.cs" />
     <Compile Include="Models\Flight.cs" />
     <Compile Include="Models\Hotel.cs" />
@@ -174,6 +194,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Hotels\Create.cshtml" />
+    <Content Include="Views\Hotels\Delete.cshtml" />
+    <Content Include="Views\Hotels\Details.cshtml" />
+    <Content Include="Views\Hotels\Edit.cshtml" />
+    <Content Include="Views\Hotels\Index.cshtml" />
+    <Content Include="Views\Tours\Create.cshtml" />
+    <Content Include="Views\Tours\Delete.cshtml" />
+    <Content Include="Views\Tours\Details.cshtml" />
+    <Content Include="Views\Tours\Edit.cshtml" />
+    <Content Include="Views\Tours\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -190,6 +220,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202106080829379_InitialCreate.resx">
+      <DependentUpon>202106080829379_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106080935590_demo1.resx">
+      <DependentUpon>202106080935590_demo1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106081142562_Demo2.resx">
+      <DependentUpon>202106081142562_Demo2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106081355390_Deom6.resx">
+      <DependentUpon>202106081355390_Deom6.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
