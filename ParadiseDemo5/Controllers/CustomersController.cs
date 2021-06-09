@@ -57,9 +57,7 @@ namespace ParadiseDemo5.Controllers
             {
                 //var book1 = db.Bookingcs.Last();
 
-
-
-                int customerId = customer.CustomerID;
+                int TourId= customer.CustomerID;
                 //var book = db.Bookingcs.Last();
                 int custrId = customer.CustomerID; using (var dbs = new ParadiseDemo5Context())
                 {
@@ -70,6 +68,18 @@ namespace ParadiseDemo5.Controllers
                         dbs.SaveChanges();
                     }
                 }
+
+                int customerId = customer.CustomerID;
+                ////var book = db.Bookingcs.Last();
+                //int custrId = customer.CustomerID; using (var dbs = new ParadiseDemo5Context())
+                //{
+                //    var change = dbs.Customers.Where(x => x.CustomerID == custrId).ToList();
+                //    foreach (var item in change)
+                //    {
+                //        //item.TotalCost = item.TotalCost - (item.deposit + item.Discount);
+                //        dbs.SaveChanges();
+                //    }
+                //}
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("SuccessPage");

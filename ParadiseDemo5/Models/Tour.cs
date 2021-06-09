@@ -269,6 +269,20 @@ namespace ParadiseDemo5.Models
             int x = Num_Adults + Num_Kids;
             return x;
         }
+        public int tourCapacity()
+        {
+            int x = 0;
+              foreach(var c in Tour )
+                if(capacity==0)
+                {
+                 string message = "Fully booked";
+                }
+                else
+                {
+                 x=capacity - numOfTickets();
+                }
+
+        }
         public string Booked()
         {
             string x = "";
