@@ -9,9 +9,6 @@ namespace ParadiseDemo5.Models
 {
     public class Tour
     {
-       
-
-
 
         public Tours TourType { get; set; }
         public enum Tours
@@ -81,7 +78,9 @@ namespace ParadiseDemo5.Models
         //[Display(Name = "Deposit")]
         //[Required(ErrorMessage = "Deposit Required")]
         [Display(Name = "Capacity")]
-        public int capacity { get; set; }
+        public int[] capacity = new int[50];
+
+        public string FriendlyMessage { get; set; }
         public double Deposit { get; set; }
         public double GuestCost { get; set; }
         public double Total_Cost { get; set; }
@@ -269,38 +268,63 @@ namespace ParadiseDemo5.Models
             int x = Num_Adults + Num_Kids;
             return x;
         }
-        public int tourCapacity()
+
+        //public int tourCapacity()
+        //{
+        //    int x = 0;
+        //    foreach (var c in Tour)
+        //    {
+        //        if (capacity == 0)
+        //        {
+        //            string message = "Fully booked";
+        //        }
+        //        else
+        //        {
+        //            x = capacity.Length - numOfTickets();
+        //        }
+        //    }
+        //}
+
+        public string TourCapacity()
         {
-            int x = 0;
-              foreach(var c in Tour )
-                if(capacity==0)
+            string friendlymessage;
+            int CapacityAvailable = 0;
+
+            CapacityAvailable = capacity.Length - numOfTickets();
+
+            do
+            {
+                if(CapacityAvailable == capacity.Length)
                 {
-                 string message = "Fully booked";
-                }
-                else
-                {
-                 x=capacity - numOfTickets();
+                    return friendlymessage = "Fully Booked";
                 }
 
+                return friendlymessage = $"There are {CapacityAvailable} rooms currently available";
+            }
+            while (capacity.Length != 0);
+          
+
+            //return friendlymessage;
         }
+
         public string Booked()
         {
             string x = "";
-            if (numOfTickets() > capacity)
+            if (numOfTickets() > capacity.Length)
             {
-                x="Fully booked";
+                x = "Fully booked";
             }
             else
             {
                 x = "Available";
-                Counter = Counter+ numOfTickets();
+                Counter = Counter + numOfTickets();
                 {
                     for (Counter = 2; Counter >= 2; Counter++) ;
-                                       
+
                 }
             }
             return x;
-            
+
         }
 
 

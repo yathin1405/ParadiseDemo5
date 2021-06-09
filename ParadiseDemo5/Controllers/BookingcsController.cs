@@ -36,17 +36,17 @@ namespace ParadiseDemo5.Controllers
 
                             select new { v.Tours, v.NumAdults, v.NumKids }).ToList();
 
-                public int ToursCapacity()
-                {
+                //public int ToursCapacity()
+                //{
                     
-                }
-                foreach(var c in book)
-                {
+                //}
+                //foreach(var c in book)
+                //{
 
-                    //    var book = (from x in db.Bookingcs
-                    //                join e in db.Tours
-                    //                on Tour.capacity equals
-                }
+                //    //    var book = (from x in db.Bookingcs
+                //    //                join e in db.Tours
+                //    //                on Tour.capacity equals
+                //}
             //foreach (var c in book)
             //{
             //    book.Add(new Bookingcs()

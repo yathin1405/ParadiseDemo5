@@ -38,9 +38,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.capacity)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Deposit)
         </th>
@@ -53,59 +53,65 @@
         <th>
             @Html.DisplayNameFor(model => model.TTickets)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FriendlyMessage)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TourType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tour_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tour_Duration)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Num_Adults)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Num_Kids)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationFrom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TourDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TourStartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.capacity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Deposit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GuestCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Total_Cost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TTickets)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TourID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TourID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TourID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TourType)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Tour_Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Tour_Duration)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Num_Adults)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Num_Kids)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LocationFrom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TourDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TourStartTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.capacity)
+    </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.Deposit)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GuestCost)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Total_Cost)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TTickets)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FriendlyMessage)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.TourID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.TourID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.TourID })
+    </td>
+</tr>
 }
 
 </table>

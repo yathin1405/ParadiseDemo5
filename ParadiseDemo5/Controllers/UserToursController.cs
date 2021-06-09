@@ -52,16 +52,16 @@ namespace ParadiseDemo5.Controllers
             if (ModelState.IsValid)
             {
                 //db.UserTours.Last();
-                int tourid = userTour.BookingID;
-                using (var dbs = new ParadiseDemo5Context())
-                {
-                    var change = dbs.Tours.Where(x => x.TourID == tourid).ToList();
-                    foreach (var item in change)
-                    {
-                        item.capacity = item.capacity - (item.Num_Adults + item.Num_Kids);
-                        dbs.SaveChanges();
-                    }
-                }
+                //int tourid = userTour.BookingID;
+                //using (var dbs = new ParadiseDemo5Context())
+                //{
+                //    var change = dbs.Tours.Where(x => x.TourID == tourid).ToList();
+                //    foreach (var item in change)
+                //    {
+                //        item.capacity = item.capacity - (item.Num_Adults + item.Num_Kids);
+                //        dbs.SaveChanges();
+                //    }
+                //}
 
 
                 //book-bookingID
@@ -75,15 +75,16 @@ namespace ParadiseDemo5.Controllers
 
 
                 var book = db.UserTours.Last();
-                int Tourid = userTour.BookingID; using (var dbs = new ParadiseDemo5Context())
-                {
-                    var change = dbs.Tours.Where(x => x.TourID == tourid).ToList();
-                    foreach (var item in change)
-                    {
-                        item.capacity = item.capacity - (item.Num_Adults + item.Num_Kids);
-                                    dbs.SaveChanges();
-                    }
-                }
+                int Tourid = userTour.BookingID; 
+                //using (var dbs = new ParadiseDemo5Context())
+                //{
+                //    var change = dbs.Tours.Where(x => x.TourID == tourid).ToList();
+                //    foreach (var item in change)
+                //    {
+                //        item.capacity = item.capacity - (item.Num_Adults + item.Num_Kids);
+                //                    dbs.SaveChanges();
+                //    }
+                //}
                 db.UserTours.Add(userTour);
                 db.SaveChanges();
                 return RedirectToAction("Index");

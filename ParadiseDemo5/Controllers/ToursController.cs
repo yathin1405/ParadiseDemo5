@@ -51,11 +51,12 @@ namespace ParadiseDemo5.Controllers
         {
             if (ModelState.IsValid)
             {
-               
+                Tour T = new Tour();
 
                 tour.Deposit = tour.deposit();
                 tour.GuestCost = tour.Guest_Cost();
                 tour.Total_Cost = tour.TotalCost();
+                tour.FriendlyMessage = tour.TourCapacity();
                 db.Tours.Add(tour);
                 db.SaveChanges();
                 return RedirectToAction("Index");
