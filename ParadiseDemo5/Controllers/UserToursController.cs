@@ -11,112 +11,140 @@ using ParadiseDemo5.Models;
 
 namespace ParadiseDemo5.Controllers
 {
-    public class ToursController : Controller
+    public class UserToursController : Controller
     {
         private ParadiseDemo5Context db = new ParadiseDemo5Context();
 
-        // GET: Tours
+        // GET: UserTours
         public ActionResult Index()
         {
-            return View(db.Tours.ToList());
+            return View(db.UserTours.ToList());
         }
 
-        // GET: Tours/Details/5
+        // GET: UserTours/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tour tour = db.Tours.Find(id);
-            if (tour == null)
+            UserTour userTour = db.UserTours.Find(id);
+            if (userTour == null)
             {
                 return HttpNotFound();
             }
-            return View(tour);
+            return View(userTour);
         }
 
-        // GET: Tours/Create
+        // GET: UserTours/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Tours/Create
+        // POST: UserTours/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TourID,TourType,Tour_Name,Tour_Duration,Num_Adults,Num_Kids,LocationFrom,TourDate,TourStartTime,Price,capacity,Deposit,GuestCost,Total_Cost,TTickets")] Tour tour)
+        public ActionResult Create([Bind(Include = "BookingID,CustomerID,CostOfBooking,DepositForBooking,BookingStatus,IsActive,PaymentMethod")] UserTour userTour)
         {
             if (ModelState.IsValid)
             {
-               
+                //db.UserTours.Last();
+                int tourid = userTour.BookingID;
+                using (var dbs = new ParadiseDemo5Context())
+                {
+                    var change = dbs.Tours.Where(x => x.TourID == tourid).ToList();
+                    foreach (var item in change)
+                    {
+                        item.capacity = item.capacity - (item.Num_Adults + item.Num_Kids);
+                        dbs.SaveChanges();
+                    }
+                }
 
-                tour.Deposit = tour.deposit();
-                tour.GuestCost = tour.Guest_Cost();
-                tour.Total_Cost = tour.TotalCost();
-                db.Tours.Add(tour);
+
+                //book-bookingID
+                //
+                //var userTour1= db.UserTours.Last();
+
+
+
+                int bookingID = userTour.BookingID;
+
+
+
+                var book = db.UserTours.Last();
+                int Tourid = userTour.BookingID; using (var dbs = new ParadiseDemo5Context())
+                {
+                    var change = dbs.Tours.Where(x => x.TourID == tourid).ToList();
+                    foreach (var item in change)
+                    {
+                        item.capacity = item.capacity - (item.Num_Adults + item.Num_Kids);
+                                    dbs.SaveChanges();
+                    }
+                }
+                db.UserTours.Add(userTour);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(tour);
+            return View(userTour);
         }
 
-        // GET: Tours/Edit/5
+        // GET: UserTours/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tour tour = db.Tours.Find(id);
-            if (tour == null)
+            UserTour userTour = db.UserTours.Find(id);
+            if (userTour == null)
             {
                 return HttpNotFound();
             }
-            return View(tour);
+            return View(userTour);
         }
 
-        // POST: Tours/Edit/5
+        // POST: UserTours/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TourID,TourType,Tour_Name,Tour_Duration,Num_Adults,Num_Kids,LocationFrom,TourDate,TourStartTime,Price,capacity,Deposit,GuestCost,Total_Cost,TTickets")] Tour tour)
+        public ActionResult Edit([Bind(Include = "BookingID,CustomerID,CostOfBooking,DepositForBooking,BookingStatus,IsActive,PaymentMethod")] UserTour userTour)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tour).State = EntityState.Modified;
+                db.Entry(userTour).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tour);
+            return View(userTour);
         }
 
-        // GET: Tours/Delete/5
+        // GET: UserTours/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tour tour = db.Tours.Find(id);
-            if (tour == null)
+            UserTour userTour = db.UserTours.Find(id);
+            if (userTour == null)
             {
                 return HttpNotFound();
             }
-            return View(tour);
+            return View(userTour);
         }
 
-        // POST: Tours/Delete/5
+        // POST: UserTours/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tour tour = db.Tours.Find(id);
-            db.Tours.Remove(tour);
+            UserTour userTour = db.UserTours.Find(id);
+            db.UserTours.Remove(userTour);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

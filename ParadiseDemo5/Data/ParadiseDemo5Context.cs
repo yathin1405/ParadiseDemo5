@@ -22,5 +22,11 @@ namespace ParadiseDemo5.Data
         public System.Data.Entity.DbSet<ParadiseDemo5.Models.Tour> Tours { get; set; }
 
         public System.Data.Entity.DbSet<ParadiseDemo5.Models.Hotel> Hotels { get; set; }
+
+        public System.Data.Entity.DbSet<ParadiseDemo5.Models.UserTour> UserTours { get; set; }
+
+        public System.Data.Entity.DbSet<ParadiseDemo5.Models.Bookingcs> Bookingcs { get; set; }
+
+        public System.Data.Entity.DbSet<ParadiseDemo5.Models.Customer> Customers { get; set; }
     }
 }

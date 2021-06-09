@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ParadiseDemo5.Models.Bookingcs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_ID)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Tour_ID)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.NumAdults)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumKids)
+       
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cust_ID)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.Tour_ID)
+    </td>*@
+    <td>
+        @Html.DisplayNameFor(model => model.NumAdults)
+    </td>
+    <td>
+        @Html.DisplayNameFor(model => model.NumKids)
+
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.BookingID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.BookingID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.BookingID })
+    </td>
+</tr>
+}
+
+</table>

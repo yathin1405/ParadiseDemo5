@@ -86,6 +86,9 @@ namespace ParadiseDemo5.Models
         public double GuestCost { get; set; }
         public double Total_Cost { get; set; }
         public int TTickets { get; set; }
+        public object Email { get; internal set; }
+        public object CustomerID { get; internal set; }
+
         public double deposit()
         {
 
@@ -279,10 +282,7 @@ namespace ParadiseDemo5.Models
                 Counter = Counter+ numOfTickets();
                 {
                     for (Counter = 2; Counter >= 2; Counter++) ;
-                    
-                    
-
-                    
+                                       
                 }
             }
             return x;
